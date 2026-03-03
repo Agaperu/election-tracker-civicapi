@@ -36,10 +36,13 @@ export default function RaceSearch({ selectedRaceIds = [], onToggleRace }) {
     return races.filter((race) => {
       const haystacks = [
         race.election_name,
+        race.type,
         race.office,
         race.office_name,
         race.seat_name,
-        race.district
+        race.district,
+        race.municipality,
+        race.province
       ];
 
       return haystacks.some((value) => String(value || "").toLowerCase().includes(normalizedQuery));
