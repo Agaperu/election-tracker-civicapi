@@ -14,7 +14,7 @@ function pill(label, value) {
 }
 
 export default function RaceViewer({ race, onRemove }) {
-  const [pollMs, setPollMs] = useState(52_000);
+  const [pollMs, setPollMs] = useState(60_000);
   const [includePrecinct, setIncludePrecinct] = useState(false);
 
   const raceId = race?.id;
