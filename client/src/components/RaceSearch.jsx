@@ -54,9 +54,11 @@ export default function RaceSearch({ selectedRaceIds = [], onToggleRace }) {
     setLoading(true);
     setError(null);
     try {
+      const expandedLimit = normalizedQuery ? Math.max(Number(filters.limit) || 0, 5000) : filters.limit;
       const data = await civicApi.searchRaces({
         ...filters,
-        query: ""
+        query: "",
+        limit: expandedLimit
       });
       setResults(data);
     } catch (err) {
