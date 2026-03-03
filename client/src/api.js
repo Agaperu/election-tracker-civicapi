@@ -1,5 +1,10 @@
+const API_BASE =
+  import.meta.env.VITE_API_BASE ||
+  (window.location.hostname === "localhost" ? "/api" : "/.netlify/functions/api");
+
 async function apiGet(path, params = {}) {
-  const url = new URL(path, window.location.origin);
+  const normalizedPath = path.startsWith("/") ? path : `/${path}`;
+  const url = new URL(`${API_BASE}${normalizedPath}`, window.location.origin);
   Object.entries(params).forEach(([k, v]) => {
     if (v !== undefined && v !== null && String(v).trim() !== "") {
       url.searchParams.set(k, v);
