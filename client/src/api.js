@@ -29,10 +29,10 @@ async function apiGet(path, params = {}) {
 }
 
 export const civicApi = {
-  health: () => apiGet("/api/health"),
-  status: () => apiGet("/api/status"),
-  searchRaces: (filters) => apiGet("/api/race/search", filters),
-  getRace: (raceId, opts = {}) => apiGet(`/api/race/${encodeURIComponent(raceId)}`, opts),
+  health: () => apiGet("/health"),
+  status: () => apiGet("/status"),
+  searchRaces: (filters) => apiGet("/race/search", filters),
+  getRace: (raceId, opts = {}) => apiGet(`/race/${encodeURIComponent(raceId)}`, opts),
   getHistory: (raceId, timestamp) =>
-    apiGet(`/api/race/${encodeURIComponent(raceId)}/history`, timestamp ? { timestamp } : {})
+    apiGet(`/race/${encodeURIComponent(raceId)}/history`, timestamp ? { timestamp } : {})
 };
